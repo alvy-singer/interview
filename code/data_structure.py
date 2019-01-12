@@ -46,5 +46,20 @@ class Trie:
                 break
 
 
-t = Trie()
-t.add('yl')
+class Stack:
+    """栈
+    """
+    def __init__(self, *args):
+        self.items = list(args)
+
+    def __repr__(self):
+        return 'Stack {}'.format(str(self.items))
+
+    def __getitem__(self, index):
+        return self.items[index]
+
+    def push(self, value):
+        self.items.append(value)
+
+    def pop(self):
+        self.items.pop()
