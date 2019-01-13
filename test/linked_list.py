@@ -1,7 +1,7 @@
 class Node:
     """双向列表的节点
     """
-    def __init__(self, value):
+    def __init__(self, value=None):
         self.value = value
         self.prev = None
         self.next = None
@@ -16,22 +16,27 @@ class DoubleLinkedList:
     def __init__(self, *args):
         """初始化双向列表
         """
-        # 定义头部节点和尾部节点
-        head_node = Node(args[0])
-        head_node.prev = None
-        tail_node = Node(args[-1])
-        tail_node.next = None
-        # 增加中部节点
-        current_node = head_node
-        for i in args[1:-1]:
-            new_node = Node(i)
-            new_node.prev = current_node
-            current_node.next = new_node
-            current_node = new_node
-        current_node.next = tail_node
-        tail_node.prev = current_node
-        self.head = head_node
-        self.tail = tail_node
+        if len(args) == 0:
+            self.head = self.tail = None
+        elif len(args) == 1:
+            self.head = self.tail = Node(args[0])
+        else:
+            # 定义头部节点和尾部节点
+            head_node = Node(args[0])
+            head_node.prev = None
+            tail_node = Node(args[-1])
+            tail_node.next = None
+            # 增加中部节点
+            current_node = head_node
+            for i in args[1:-1]:
+                new_node = Node(i)
+                new_node.prev = current_node
+                current_node.next = new_node
+                current_node = new_node
+            current_node.next = tail_node
+            tail_node.prev = current_node
+            self.head = head_node
+            self.tail = tail_node
         return
 
     def __repr__(self):
@@ -83,15 +88,3 @@ class DoubleLinkedList:
             return self.head
         else:
             raise Exception('x not in linked list')
-
-
-if __name__ == '__main__':
-    print('initial double linked list')
-    linked_list = DoubleLinkedList(1, 'a', 2, 3, 2, 5)
-    print(linked_list)
-    print('after remove head')
-    print(linked_list.remove_value(1))
-    print(linked_list)
-    print('after remove value 2')
-    print(linked_list.remove_value(2))
-    print(linked_list)
