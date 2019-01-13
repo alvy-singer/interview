@@ -71,10 +71,16 @@ class DoubleLinkedList:
 
     def remove_value(self, x):
         """删除第一个值等于x的节点
+
+        Args:
+            x: 节点Node的值value
+        Return:
+            DolubleLinkedList的头部节点
         """
         node = self.search(x)
         if node:
-            return self.remove_node(node)
+            self.remove_node(node)
+            return self.head
         else:
             raise Exception('x not in linked list')
 
@@ -84,8 +90,10 @@ if __name__ == '__main__':
     linked_list = DoubleLinkedList(1, 'a', 2, 3, 2, 5)
     print(linked_list)
     print('after remove head')
-    linked_list.remove_value(1)
+    rv1 = linked_list.remove_value(1)
+    print(rv1)
     print(linked_list)
     print('after remove value 2')
-    linked_list.remove_value(2)
+    rv2 = linked_list.remove_value(2)
+    print(rv2)
     print(linked_list)
