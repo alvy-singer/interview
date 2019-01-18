@@ -76,3 +76,26 @@ class Sort:
         if index < len_my_list - 1:
             cls.quick_sort_helper(my_list, index, len_my_list-1)
         return my_list
+
+    @classmethod
+    def second_largest(cls, my_list):
+        """找到数组的第二大的数字
+        """
+        assert len(my_list) > 1, 'list length must > 2'
+        if my_list[1] > my_list[0]:
+            first = my_list[1]
+            second = my_list[0]
+        else:
+            first = my_list[0]
+            second = my_list[1]
+        for i in range(2, len(my_list)):
+            if my_list[i] > second:
+                if my_list[i] > first:
+                    second = first
+                    first = my_list[i]
+                elif my_list[i] < first:
+                    second = my_list[i]
+        if first == second:
+            return 'no second'
+        else:
+            return second

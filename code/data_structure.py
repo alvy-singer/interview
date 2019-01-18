@@ -48,6 +48,8 @@ class Trie:
 
 class Stack:
     """栈
+
+    先进后出
     """
     def __init__(self, *args):
         self.items = list(args)
@@ -63,3 +65,32 @@ class Stack:
 
     def pop(self):
         self.items.pop()
+
+
+class Queue:
+    """队列
+
+    先进先出
+    """
+    def __init__(self, *args):
+        self.items = list(args)
+
+    def __repr__(self):
+        return 'Stack {}'.format(str(self.items))
+
+    def __getitem__(self, index):
+        return self.items[index]
+
+    def push(self, value):
+        self.items.append(value)
+
+    def pop(self):
+        self.items.pop(0)
+
+
+class Vector:
+    """向量
+    """
+    def __init__(self, x, y):
+        x = x
+        y = y
