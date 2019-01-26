@@ -17,6 +17,7 @@
 - 猎聘
 - 内推
 - 各类论坛
+
   v2ex等
 
 ## 简历
@@ -29,7 +30,9 @@
 ## 参考资料
 
 <https://github.com/jwasham/coding-interview-university>
+
 <https://github.com/taizilongxu/interview_python>
+
 <https://book.douban.com/subject/25753386/>
 
 ## 面试准备
